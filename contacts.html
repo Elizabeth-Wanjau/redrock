@@ -1,0 +1,206 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<?PHP
+include 'includes/link.php';
+
+$conn = mysqli_connect('localhost', 'root', '', 'redrock');
+if(!$conn){
+		print '<script type="text/javascript">';
+		print 'alert("database not connected" ,mysql_error())';
+		//header("location: shopping.php");
+		print '</script>';
+}
+else{
+	print '<script type="text/javascript">';
+		print 'alert("Database connected Successfully"';
+		//header("location: shopping.php");
+		print '</script>';
+}
+$dbase = mysqli_select_db($conn, 'redrock');
+
+if(isset($_POST['add'])){
+	
+	$first_name=$_POST['first_name'];
+	$other_names=$_POST['other_names'];
+	$contacts=$_POST['contacts'];
+	$address=$_POST['address'];
+	$gender=$_POST['gender'];
+	$email=$_POST['email'];
+	
+	$query= "INSERT INTO customer(first_name, other_names, contacts, address, gender, email) VALUES ('$first_name','$other_names', '$contacts','$address','&gender','email')";
+	mysqli_query($conn, $query);
+	if(!$query){
+		echo "could not send information" .mysql_error();
+	}
+	else{
+		print '<script type="text/javascript">';
+		print 'alert("message sent successfully")';
+		//header("location: shopping.php");
+		print '</script>';
+	}
+
+}
+?>
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Red Rock-Contact Us</title>
+</head>
+<body>
+	<header>
+		<div class="containter">
+	<div class="row row-fixed-top " style="background: #F5F5F5;">
+		<div class="col-xs-12 col-md-12 col-xl-12 col-lg-12 col-sm-12">
+			
+				<?php include 'includes/header.php'?><br/>
+				
+			 <div class="row" style="margin-top: 80px; padding-left: 20px;">
+			
+				
+					<a class="navbar-brand" href="index.php"><img style="width: auto; height: 200px; " src="images/Logo1.jpg" alt="logo"></a>
+				
+					 <a class="navbar-brand" href="index.php"><img style="width: auto; height: 200px; align: right;" src="images/address.jpg" alt="address"></a>
+					<!--<h1>Welcome to Red Rock Quarry</h1>
+					<h3>P. o. Box 129-10104,</h3>
+					<h4>Mweiga</h4>
+					<h6>Email: info@redrockquarry.co.ke</h6>
+					<h6>Tel: 020 234 187 6783</h6>
+					<h6>Mobile: +254 706 222333/222334/222335</h6>
+					<h2 color="red"><i>We are Deligted to Serve You.</i></h3>-->
+				
+				
+					</div>	
+				<div class="row" align="center" style="background: silver; padding-left: 20px;">
+			<nav  class="navbar" >
+				  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+					&#9776;
+				  </button>
+				  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+				 
+					<ul class="nav navbar-nav" >
+					  <li class="nav-item active">
+						<a class="nav-link" href="index.php">Home</a>
+					  </li>
+					  <li class="nav-item dropdown">
+						<a class="nav-link" href="about.php" role="button">About Us</a>
+							
+					  </li>
+					  <!---<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="shop.php" role="button" aria-haspopup="true" aria-expanded="false">Products</a>
+						
+							<div class="dropdown-menu">
+								<a class="dropdown-item " href="#">Jewelry</a>
+								<a class="dropdown-item" href="#">Cosmetics</a>
+								<a class="dropdown-item" href="#">soaps and Detergents</a>
+								<a class="dropdown-item" href="#">Skin Care</a>
+								<a class="dropdown-item" href="#">Others</a>
+							</div>
+					  </li>-->
+					  <li class="nav-item dropdown">
+						<a class="nav-link" href="products.php" role="button">Products</a>	
+					  </li>
+					  <li class="nav-item dropdown">
+						<a class="nav-link" href="services.php" role="button">Services</a>						
+					  </li>
+					  <li class="nav-item dropdown">
+						<a class="nav-link active" href="contacts.php" role="button">Contact Us<span class="sr-only">(current)</span></a>
+					  </li>
+					</ul>
+					
+				  </div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+	</header> <br/> <br/> <hr>
+	<main>
+
+<div class="containter">
+	<div class="row">
+		<div class="col-xs-12 col-md-12 col-xl-12 col-lg-12 col-sm-12">
+		<div class="col-md-9">
+			<div class="card-group">
+				<div class="card">
+					<form>
+						
+					
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+				<div class="col-xs-12 col-md-12 col-xl-12 col-lg-12 col-sm-12">
+					<div class="card-group">
+							<div class="card" >
+					<div class="card-header">
+						Contact information
+					</div>
+					<div class="card-block">
+						<h5 class="card-title"> Please follow us through...</h5>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item"> <button class="btn btn-primary btn-block"  type="button" data-toggle="collapse" data-target="#CollapseID" aria-expanded="false" aria-controls="CollapseID"> FACEBOOK</button>
+							<div class="collapse" id="CollapseID">
+								Like us on facebook @www.facebook.com/redrock_quarry
+							</div>
+						</li>
+						<li class="list-group-item"><button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#twitter" aria-expanded="false" aria-controls="CollapseID">TWITTER</button>
+							<div class="collapse" id="twitter">
+								Follow us on twitter @redrock_quarry
+							</div>
+						</li>
+						<li class="list-group-item"><button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#instagram" aria-expanded="false" aria-controls="instagram">INSTAGRAM</button>
+							<div class="collapse" id="instagram">
+								Follow us on Instagram @redrock_quarry
+							</div>
+						</li>
+						<li class="list-group-item"><button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#emails" aria-expanded="false" aria-controls="emails">EMAIL</button>
+							<div class="collapse" id="emails">
+								info@redrockquarry.co.ke
+								redrockquarry@customercare.com
+								helpdesk@redrockquarry.com
+							</div>
+						</li>
+						<li class="list-group-item"><button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#tel" aria-expanded="false" aria-controls="tel">TEL</button>
+							<div class="collapse" id="tel">
+								+254 706 244 243
+								+254 706 244 243
+								+254 706 244 243
+							</div>
+						</li>
+						
+					</ul>
+					
+						<p><i>LET US BUILD TOGETHER<i></p>
+					</div>
+					<div class="card-footer">
+						BEDROCK QUARRY
+					</div>
+				</div>
+				
+				</div>
+				<br/>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</main>
+<br/><br/><hr>
+
+	<footer>
+		<div class="containter">
+			<div class="row">
+				<div class="col-xs-12 col-md-12 col-xl-12 col-lg-12 col-sm-12">
+					<?php include 'includes/footer.php';?>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
